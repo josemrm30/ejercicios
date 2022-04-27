@@ -1,0 +1,26 @@
+.son {
+    display: flex;
+    width: 95%;
+    border: 3px solid indigo;
+    margin-block: 1em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.3em;
+}
+
+.button {
+    margin: 5px;
+    margin-top: 1%;
+}
+
+.title {
+    margin: 0.3em;
+    align-self: flex-start;
+}

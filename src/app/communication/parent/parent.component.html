@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="sub-container">
+        <span class="title">
+            PARENT
+        </span>
+        <span>
+            Message: {{message}}
+        </span>
+        <div class="parent">
+            <button mat-raised-button color="primary" class="button" (click)="useService()">Use Service</button>
+            <button mat-raised-button color="primary" class="button" (click)="useInput()">Use Input Property</button>
+            <button mat-raised-button color="primary" class="button" (click)="useSubject()">Use Observable</button>
+        </div>
+        <app-son [message]="sonMessage" (parentMessage)="outputMsg($event)"></app-son>
+    </div>
+</div>
