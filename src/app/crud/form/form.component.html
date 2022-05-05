@@ -1,0 +1,41 @@
+<div class="form">
+    <mat-form-field appearance="outline" class="input">
+        <mat-label>Username</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input">
+        <mat-label>Password</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input">
+        <mat-label>Email</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-checkbox class="checkbox">
+        <mat-label class="label">
+            Subscribe Promotional Offers
+        </mat-label>
+    </mat-checkbox>
+
+    <mat-form-field appearance="outline" class="input">
+        <mat-label>Country</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let pais of countries">{{pais}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input">
+        <mat-label>City</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" id="form-button">Añadir</button>
+</div>

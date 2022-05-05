@@ -1,0 +1,8 @@
+.row {
+    color: inherit;
+}
+
+.row:hover {
+    background-color: darkslateblue;
+    color: white;
+}

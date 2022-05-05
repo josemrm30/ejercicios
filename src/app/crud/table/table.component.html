@@ -1,0 +1,32 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+    <ng-container matColumnDef="score">
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let emprow; columns: displayedColumns" id="{{emprow.Id}}" (click)="rowSelected(emprow)" class="row"></tr>
+
+    </ng-container>
+    <ng-container *ngFor="let column of displayedColumns">
+        <ng-container [matColumnDef]="column">
+            <ng-container [ngSwitch]="column">
+                <ng-container *ngSwitchCase="'Subscribed'">
+                    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                    <td mat-cell *matCellDef="let emp">
+                        <span *ngIf="emp[column] === 'true'"><mat-icon>done</mat-icon></span>
+                    </td>
+                </ng-container>
+                <ng-container *ngSwitchCase="'Action'">
+                    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                    <td mat-cell *matCellDef="let emp">
+                        <mat-icon>edit</mat-icon>
+                        <!-- (click)="funciones" -->
+                        <mat-icon>delete</mat-icon>
+                    </td>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                    <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+
+</table>

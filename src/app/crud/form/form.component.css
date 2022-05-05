@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox {
+    margin-bottom: 0.5em;
+    margin-left: 0.1em;
+}
+
+.input {
+    margin-bottom: -1em;
+}
+
+.label {
+    white-space: normal;
+}
