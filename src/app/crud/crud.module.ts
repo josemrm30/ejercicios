@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { FormComponent } from './form/form.component';
 import { TableComponent } from './table/table.component';
 import { CrudComponent } from './crud.component';
@@ -14,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { CrudService } from './services/crud.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatTableModule,
     MatFormFieldModule,
@@ -42,7 +46,7 @@ import { MatButtonModule } from '@angular/material/button';
 
   ],
   providers: [
-
+    CrudService
   ]
 })
 export class CrudModule { }

@@ -20,6 +20,7 @@
     margin: 1%;
     width: 30%;
     white-space: pre-wrap;
+    height: min-content;
 }
 
 @media screen and (max-width: 720px) {

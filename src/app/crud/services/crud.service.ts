@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Employee } from '../interfaces/interfaces';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CrudService {
 
-  private _formData!: Employee;
+  private aux!: Employee;
+  private _user$: BehaviorSubject<Employee> = new BehaviorSubject<Employee>(this.aux);
+  private _buttonName: string = "";
 
   constructor() { }
 
-  rowSelected(row: Employee){
-    this._formData = row;
-    
+  get buttonName(){
+    return this._buttonName;
+  }
+  set buttonName(aux: string){
+   this._buttonName = aux;
   }
 
-
-  get formData() {
-    return this._formData;
+  get empl() {
+    return this._user$.asObservable();
   }
+  public changeEmp(emp: Employee): void {
+    this._user$.next(emp);
+  }
+
 
 }

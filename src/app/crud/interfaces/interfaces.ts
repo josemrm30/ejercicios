@@ -1,10 +1,11 @@
 export interface Employee {
-    Id: number,
-    FirstName: string,
-    LastName: string,
+    id: number,
+    Username: string,
     Email: string,
-    Gender: string,
-    JobTitle: string
+    Subscribed: string,
+    Country: string,
+    City: string,
+    Password: string
   }
 
 export interface Country {
