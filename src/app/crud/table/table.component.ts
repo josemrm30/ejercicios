@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
     await this.getEmployees();
   }
 
-  displayedColumns: string[] = ['Username', 'Email', 'Subscribed', 'Country', 'City', 'Action'];
+  displayedColumns: string[] = ['username', 'email', 'subscribed', 'country', 'city', 'action'];
 
 
   async getEmployees() {
@@ -35,19 +35,16 @@ export class TableComponent implements OnInit {
 
   rowSelected(row: Employee) {
     this.crudService.changeEmp(row);
-    this.crudService.buttonName = "Update";
+    this.crudService.changeButtonName("Update");
   }
 
   async deleteEmp(aux: Employee) {
     let id = aux.id;
-    
-    const employeesD$ = this.http.delete<Employee[]>(`http://localhost:3000/employees/`+ id);
+
+    const employeesD$ = this.http.delete<Employee[]>(`http://localhost:3000/employees/` + id);
     await lastValueFrom(employeesD$);
     const employees$ = this.http.get<Employee[]>("http://localhost:3000/employees/");
     this.empData = await lastValueFrom(employees$);
     this.dataSource = new MatTableDataSource(this.empData);
   }
 }
-
-
-

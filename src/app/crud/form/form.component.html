@@ -1,7 +1,7 @@
-<form [formGroup]="form" class="form">
+<form [formGroup]="form" class="form" #formDirective="ngForm">
     <mat-form-field appearance="outline" class="input">
         <mat-label>Username</mat-label>
-        <input matInput formControlName="usuario">
+        <input matInput formControlName="username">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="input">
@@ -26,10 +26,9 @@
     </mat-checkbox>
 
     <mat-form-field appearance="outline" class="input">
-        <!-- TODO  formControlName="country" -->
         <mat-label>Country</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let item of countries">{{item}}</mat-option>
+        <mat-select formControlName="country">
+            <mat-option *ngFor="let item of countries" [value]="item">{{item}}</mat-option>
         </mat-select>
     </mat-form-field>
 
@@ -38,8 +37,5 @@
         <input matInput formControlName="city">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" id="form-button" (click)="addEmp()">{{ this.buttonName }}</button>
+    <button mat-raised-button color="primary" id="form-button" (click)="addEmp(formDirective)" class="button">{{ this.buttonName }}</button>
 </form>
-<h3>Valor del formulario</h3>
-<pre>{{form.valid}}</pre>
-<pre>{{form.value | json}}</pre>

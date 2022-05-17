@@ -15,3 +15,7 @@
 .action {
     cursor: pointer;
 }
+
+.header {
+    text-transform: capitalize;
+}

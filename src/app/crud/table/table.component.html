@@ -1,21 +1,20 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 table">
     <ng-container matColumnDef="score">
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="header"></tr>
         <tr mat-row *matRowDef="let emprow; columns: displayedColumns" class="row"></tr>
-        <!-- Ask hover -->
 
     </ng-container>
     <ng-container *ngFor="let column of displayedColumns">
         <ng-container [matColumnDef]="column">
             <ng-container [ngSwitch]="column">
-                <ng-container *ngSwitchCase="'Subscribed'">
+                <ng-container *ngSwitchCase="'subscribed'">
                     <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
                     <td mat-cell *matCellDef="let emp">
-                        <span *ngIf="emp[column] === 'true'"><mat-icon>done</mat-icon></span>
-                        <!-- Check best option -->
+                        <span *ngIf="emp[column]"><mat-icon>done</mat-icon></span>
+
                     </td>
                 </ng-container>
-                <ng-container *ngSwitchCase="'Action'">
+                <ng-container *ngSwitchCase="'action'">
                     <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
                     <td mat-cell *matCellDef="let emp">
                         <ng-container>

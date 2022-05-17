@@ -1,11 +1,11 @@
 export interface Employee {
     id: number,
-    Username: string,
-    Email: string,
-    Subscribed: string,
-    Country: string,
-    City: string,
-    Password: string
+    username: string,
+    email: string,
+    subscribed: string,
+    country: string,
+    city: string,
+    password: string
   }
 
 export interface Country {

@@ -6,23 +6,24 @@ import { Employee } from '../interfaces/interfaces';
 export class CrudService {
 
   private aux!: Employee;
-  private _user$: BehaviorSubject<Employee> = new BehaviorSubject<Employee>(this.aux);
-  private _buttonName: string = "";
+  private _emp$: BehaviorSubject<Employee> = new BehaviorSubject<Employee>(this.aux);
+  private _buttonName$: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
   constructor() { }
 
-  get buttonName(){
-    return this._buttonName;
+  get buttonName() {
+    return this._buttonName$.asObservable();
   }
-  set buttonName(aux: string){
-   this._buttonName = aux;
+
+  public changeButtonName(name: string): void {
+    this._buttonName$.next(name);
   }
 
   get empl() {
-    return this._user$.asObservable();
+    return this._emp$.asObservable();
   }
   public changeEmp(emp: Employee): void {
-    this._user$.next(emp);
+    this._emp$.next(emp);
   }
 
 
