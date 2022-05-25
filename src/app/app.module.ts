@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
+
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTabsModule } from '@angular/material/tabs';
+
 import { CommunicationModule } from './communication/communication.module';
 import { CrudModule } from './crud/crud.module';
-
-import { SearchComponent } from './search/search.component';
-import { CounterComponent } from './counter/counter.component';
+import { CounterModule } from './counter/counter.module';
+import { MaterialModule } from 'src/material.module';
+import { LightSwitchModule } from './light-switch/light-switch.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
-    CounterComponent,
   ],
   imports: [
     BrowserModule,
-    MatTabsModule,
     BrowserAnimationsModule,
     CommunicationModule,
-    CrudModule
+    CrudModule,
+    CounterModule,
+    LightSwitchModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,38 @@
-<div class="tab-center">
-    <p>counter works!</p>
+<div class="container">
+    <mat-card class="card">
+        <form [formGroup]="form">
+            <div class="container">
+                <h1>{{count}}</h1>
+            </div>
+            <div class="sub-container">
+                <h4>Setup</h4>
+                <mat-button-toggle-group>
+                    <mat-button-toggle (click)="start()">Start</mat-button-toggle>
+                    <mat-button-toggle (click)="pause()">Pause</mat-button-toggle>
+                    <mat-button-toggle (click)="reset()">Reset</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div class="sub-container">
+                <h4>Count</h4>
+                <mat-button-toggle-group>
+                    <mat-button-toggle (click)="up()">Count up</mat-button-toggle>
+                    <mat-button-toggle (click)="down()">Count down</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div class="sub-container">
+                <br>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Set to</mat-label>
+                    <input matInput type="number" formControlName="value">
+                </mat-form-field>
+            </div>
+            <div class="sub-container">
+                <br>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Step</mat-label>
+                    <input matInput type="number" formControlName="step">
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
 </div>

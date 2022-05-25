@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="form" #formDirective="ngForm">
+<form [formGroup]="form" class="form">
     <mat-form-field appearance="outline" class="input">
         <mat-label>Username</mat-label>
         <input matInput formControlName="username">
@@ -37,5 +37,5 @@
         <input matInput formControlName="city">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" id="form-button" (click)="addEmp(formDirective)" class="button">{{ this.buttonName }}</button>
+    <button mat-raised-button color="primary" id="form-button" (click)="addEmp()" class="button">{{ this.buttonName }}</button>
 </form>

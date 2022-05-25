@@ -1,0 +1,25 @@
+.container {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-bottom: -1.3em;
+}
+
+.card {
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-size: 7em;
+    margin: 0;
+    justify-self: center;
+}

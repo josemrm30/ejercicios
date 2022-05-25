@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Country, Employee } from '../interfaces/interfaces';
 import { lastValueFrom } from 'rxjs';
 import { CrudService } from '../services/crud.service';
@@ -16,6 +16,8 @@ export class FormComponent implements OnInit {
   aux!: any;
   emp!: Employee;
   buttonName: string = "Add";
+
+  @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
 
   form: FormGroup = this.fb.group({
     //validaciones
@@ -71,28 +73,24 @@ export class FormComponent implements OnInit {
     this.countries.sort();
   }
 
-  async addEmp(formDirective: FormGroupDirective) {
-    console.log(this.form ); //1
+  async addEmp() {
 
-    if (this.form.valid) {
-      console.log(this.form); //2
+    if (this.form.valid) { //TODO change call to a service
       const headers = { "Content-Type": "application/json" };
       if (this.buttonName === "Update") {
         if (!this.form.pristine) {
-          console.log(this.form); //3
           this.updateEmp();
           const body = this.emp;
           const employees$ = this.http.put<Employee>("http://localhost:3000/employees/" + this.emp.id, body, { headers });
           await lastValueFrom(employees$);
         }
         else {
-          console.log(this.form); //4
-          this.form.markAsDirty();
-          this.form.markAllAsTouched();
+          console.log("<< form", this.formDirective);
+
+          this.formDirective.resetForm();
         }
       }
       else {
-        console.log(this.form); //5
         const body = this.createEmp();
         const employees$ = this.http.post<Employee>("http://localhost:3000/employees/", body, { headers });
         await lastValueFrom(employees$);
@@ -100,21 +98,28 @@ export class FormComponent implements OnInit {
       this.changeName("Add");
 
       this.form.reset();
-      formDirective.resetForm();
-      console.log(this.form);
-      
+      this.formDirective.resetForm();
 
     }
     else {
-      let aux = Object.keys(this.form.controls);
-      for (let index = 0; index < aux.length; index++) {
-        console.log("The " + aux[index] + " field is " + JSON.stringify(this.form.controls[aux[index]].errors));
 
-
-
+      const result: any = [];
+      Object.keys(this.form.controls).forEach(key => {
+        const controlErrors: any = this.form.get(key)?.errors;
+        if (controlErrors) {
+          Object.keys(controlErrors).forEach(keyError => {
+            result.push({
+              'control': key,
+              'error': keyError,
+              'value': controlErrors[keyError]
+            });
+          });
+        }
+      });
+      console.log(result);
+      for (let index = 0; index < result.length; index++) {
+        console.log("The " + result[index].control + " field is " + result[index].error); //JSON.stringify(this.form.controls[aux[index]].errors)
       }
-
-
     }
   }
   updateEmp() {
@@ -137,4 +142,3 @@ export class FormComponent implements OnInit {
     return emp;
   }
 }
-

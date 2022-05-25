@@ -5,7 +5,7 @@ import { ParentComponent } from './parent/parent.component';
 import { SonComponent } from './son/son.component';
 import { CommunicationService } from './services/communication.service';
 
-import {MatButtonModule} from '@angular/material/button';
+import { MaterialModule } from 'src/material.module';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   imports: [
     CommonModule,
-    MatButtonModule,
+    MaterialModule
   ],
   exports: [
     ParentComponent,

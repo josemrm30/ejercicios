@@ -1,0 +1,52 @@
+.container {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    margin-bottom: 1em;
+}
+
+.rectangle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 150px;
+    width: 75px;
+    background-color: #555;
+}
+
+.circle {
+    height: 35px;
+    width: 35px;
+    background-color: rgb(173, 148, 148);
+    border-radius: 50%;
+}
+
+.red {
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    box-shadow: 0 0 25px 5px rgb(245, 12, 12);
+    background-color: red;
+}
+
+.yellow {
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    box-shadow: 0 0 25px 5px rgb(255, 226, 6);
+    background-color: rgb(198, 231, 36);
+}
+
+.green {
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    box-shadow: 0 0 25px 5px rgb(58, 232, 15);
+    background-color: rgb(32, 217, 32);
+}
+
+.bold {
+    font-weight: bold;
+}

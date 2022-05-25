@@ -1,0 +1,23 @@
+<div class="container">
+    <mat-card class="card">
+        <form [formGroup]="form">
+            <div class="container">
+                <div class=" rectangle ">
+                    <div [ngClass]="{'green': form.value['checked'] && form.value['light'] === 'Green'}" class="circle"></div>
+                    <div [ngClass]="{'yellow': form.value['checked'] && form.value['light'] === 'Yellow'}" class="circle"></div>
+                    <div [ngClass]="{'red': form.value['checked'] && form.value['light'] === 'Red'}" class="circle"></div>
+                </div>
+            </div>
+            <h2>Controller</h2>
+            <div class="container">
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Color</mat-label>
+                    <mat-select formControlName="light">
+                        <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-checkbox formControlName="checked"><span [ngClass]="{'bold': form.value['checked']}">On</span>/<span [ngClass]="{'bold': ! form.value['checked']}">Off</span></mat-checkbox>
+        </form>
+    </mat-card>
+</div>
